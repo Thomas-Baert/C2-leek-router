@@ -1,20 +1,18 @@
 #include <tabulate/table.hpp>
 #include <map>
-#include <ostream>
 #include <string>
 #include <vector>
 
-#include "peer.hpp"
+#include "peer.cpp"
 
 using namespace std;
 
 class PeerTable {
-private: 
    map<int, Peer> table;
 
 public: 
    void add_peer(int id, string ip) {
-      table.insert(pair<int, Peer>(id, Peer(id, ip)));
+      table.insert(pair(id, Peer(id, ip)));
    }
 
    Peer get_peer(int id) {

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "network/peer/peer_table.hpp"
+#include "network/peer/peer_table.cpp"
 
 int main(int argc, char** argv) {
     PeerTable peerTable;

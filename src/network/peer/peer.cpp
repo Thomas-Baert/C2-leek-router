@@ -7,9 +7,16 @@ public:
     int id;
     string ip;
 
-public: 
     Peer(int id, string ip) {
         this->id = id;
         this->ip = ip;
+    }
+
+    string get_ip() const {
+        return ip;
+    }
+
+    int get_id() const {
+        return id;
     }
 };

@@ -9,7 +9,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(asio REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp
+        src/network/peer/peer.cpp
+        src/network/peer/peer_table.cpp
+        src/network/server.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE asio::asio OpenSSL::SSL)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
