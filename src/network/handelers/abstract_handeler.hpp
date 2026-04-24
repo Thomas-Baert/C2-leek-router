@@ -5,9 +5,10 @@
 #define ABSTRACT_HANDELER_HPP
 
 class AbstractHandeler {
-    public:
-        virtual ~AbstractHandeler() = default;
-        virtual asio::awaitable<void> handle_client(asio::ip::tcp::socket socket) = 0;
+    std::unique_ptr<AbstractHandeler> previous;
+public:
+    virtual ~AbstractHandeler() = default;
+    virtual asio::awaitable<void> handle_client(asio::ip::tcp::socket socket) = 0;
 };
 
 #endif
