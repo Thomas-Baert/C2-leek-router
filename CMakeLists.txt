@@ -1,4 +1,5 @@
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_NO_SYSTEM_FROM_IMPORTED TRUE)
 
 cmake_minimum_required(VERSION 3.15)
 project(RouterP2P VERSION 1.0 LANGUAGES CXX)
@@ -13,7 +14,8 @@ add_executable(${PROJECT_NAME} src/main.cpp
         src/network/peer/peer.hpp
         src/network/peer/peer_table.hpp
         src/network/server.hpp
-        src/network/handelers/Rebound.hpp)
+        src/network/handelers/Rebound.hpp
+        src/network/concurrent_socket/concurrent_socket.hpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE asio::asio OpenSSL::SSL)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
@@ -28,3 +30,5 @@ target_link_libraries(RouterP2P PRIVATE
     asio::asio 
     openssl::openssl
 )
+
+add_definitions(-std=c++20)

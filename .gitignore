@@ -53,3 +53,4 @@ CMakePresets.json
 .cache/
 .ninja_deps
 .ninja_log
+.clangd
