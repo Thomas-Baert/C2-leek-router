@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "peer.cpp"
+#include "peer.hpp"
 
 using namespace std;
 

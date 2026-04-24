@@ -10,11 +10,10 @@ find_package(asio REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 add_executable(${PROJECT_NAME} src/main.cpp
-        src/network/peer/peer.cpp
-        src/network/peer/peer_table.cpp
+        src/network/peer/peer.hpp
+        src/network/peer/peer_table.hpp
         src/network/server.hpp
-        src/network/handelers/Rebound.cpp
-        src/network/handelers/Rebound.h)
+        src/network/handelers/Rebound.hpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE asio::asio OpenSSL::SSL)
 target_include_directories(${PROJECT_NAME} PUBLIC include)

@@ -1,6 +1,6 @@
 #include <iostream>
 #include "network/server.hpp"
-#include "network/handelers/Rebound.h"
+#include "network/handelers/Rebound.hpp"
 
 int main(int argc, char** argv) {
     auto rebound = std::make_shared<Rebound>(12000);
