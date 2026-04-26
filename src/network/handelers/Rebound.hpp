@@ -1,5 +1,4 @@
-#ifndef ROUTERP2P_REBOUND_H
-#define ROUTERP2P_REBOUND_H
+#pragma once
 
 #include <iostream>
 #include "abstract_handeler.hpp"
@@ -8,12 +7,12 @@
 using asio::ip::tcp;
 
 class Rebound: public AbstractHandeler {
-    short port;
+    unsigned short port;
     std::string ip = "127.0.0.1";
 
 public:
-    Rebound(unsigned short port): port(port) {}
-    Rebound(unsigned short port, std::string ip) : port(port), ip(ip) {}
+    explicit Rebound(const unsigned short port): port(port) {}
+    Rebound(const unsigned short port, std::string ip) : port(port), ip(std::move(ip)) {}
 
     asio::awaitable<void> handle_client(tcp::socket socket) override {
         try {
@@ -35,7 +34,3 @@ public:
         }
     }
 };
-
-
-
-#endif //ROUTERP2P_REBOUND_H
