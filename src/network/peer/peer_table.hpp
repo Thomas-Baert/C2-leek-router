@@ -1,3 +1,5 @@
+#pragma once
+
 #include <tabulate/table.hpp>
 #include <map>
 #include <string>

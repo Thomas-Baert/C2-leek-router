@@ -1,3 +1,5 @@
+#pragma once
+
 #include "handelers/abstract_handeler.hpp"
 #include <memory>
 #include <asio.hpp>
@@ -12,7 +14,7 @@ class Server {
     tcp::acceptor acceptor;
 
 public:
-    Server(unsigned short port)
+    explicit Server(unsigned short port)
     : acceptor(io_context, {tcp::v4(), port}) {}
 
     void start() {
