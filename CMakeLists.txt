@@ -1,6 +1,8 @@
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_NO_SYSTEM_FROM_IMPORTED TRUE)
 
+include(${CMAKE_BINARY_DIR}/../build/Release/generators/conan_toolchain.cmake)
+
 cmake_minimum_required(VERSION 3.15)
 project(RouterP2P VERSION 1.0 LANGUAGES CXX)
 
@@ -15,7 +17,10 @@ add_executable(${PROJECT_NAME} src/main.cpp
         src/network/peer/peer_table.hpp
         src/network/server.hpp
         src/network/handelers/Rebound.hpp
-        src/network/concurrent_socket/concurrent_socket.hpp)
+        src/network/concurrent_socket/ring_buffer.hpp
+        src/main.cpp
+        src/network/concurrent_socket/concurrent_socket.hpp
+        src/network/concurrent_socket/config.h)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE asio::asio OpenSSL::SSL)
 target_include_directories(${PROJECT_NAME} PUBLIC include)
